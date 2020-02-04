@@ -1,0 +1,20 @@
+function sumAll(arr) {
+  let sortArr = arr.slice(0).sort((a, b) => a - b);
+  let newArr = [];
+  for (let i = sortArr[0]; i <= sortArr[sortArr.length - 1]; i++) {
+    newArr.push(i);
+  }
+  console.log(arr);
+  console.log(sortArr);
+  console.log(newArr);
+  return newArr.reduce((sum, item) => sum + item, 0);
+}
+
+sumAll([12, 4]);
+
+
+/*
+-- sort the arr to find start & end nums.
+-- create newArr contains the oringnal arr + the nums between them.
+-- newArr.reduce(sum) to get the sum of all the nums!
+*/

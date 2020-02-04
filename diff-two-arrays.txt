@@ -1,0 +1,33 @@
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  // Same, same; but different.
+
+  // Loop through the Arr1
+  for (let i = 0; i < arr1.length; i++) {
+    // Check if item exists in smallArr
+    if (!arr2.some(e => e == arr1[i])) {
+      newArr.push(arr1[i]);
+    }
+  }
+  // Loop through the Arr2
+  for (let i = 0; i < arr2.length; i++) {
+    if (!arr1.some(e => e === arr2[i])) {
+      newArr.push(arr2[i]);
+    }
+  }
+  console.log(newArr);
+  // Make sure I didn't change the orignal arguments
+  console.log(arr1); 
+  console.log(arr2);
+
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+diffArray([1, "calf", 3, "piglet"], [1, "calf", 3, 4]);
+
+/*
+** loop through the each arr.
+** compare each item using .some() to the other arr.
+** append the false outcome one to the newArr!!
+*/

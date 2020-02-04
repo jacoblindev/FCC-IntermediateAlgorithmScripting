@@ -1,0 +1,23 @@
+function destroyer(arr) {
+  // Remove all the values
+
+  // Making arguments into array
+  let arguArr = [].slice.call(arguments);
+  arguArr.shift(); // remove the first one which is the arr
+  console.log(arguArr);
+
+  // filter through the arr to compare the elements
+  arr = arr.filter(e => !arguArr.some(i => i === e));
+  console.log(arr);
+  return arr;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+destroyer(["tree", "hamburger", 53], "tree", 53);
+
+/*
+** make the rest of the arguments into an arguArr using arguments object
+** filter the arr
+** keep the element that doesn't match the arguArr using .some()
+** return the remaining arr!!
+*/
