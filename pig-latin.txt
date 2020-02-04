@@ -1,0 +1,27 @@
+function translatePigLatin(str) {
+
+  let regexp = /[aeiou]+/i;
+  let newStr = str.split('').some(e => e.match(regexp)) ? 
+               str.search(regexp) > 0 ? 
+               str.slice(str.search(regexp))
+               .concat(str.slice(0, str.search(regexp)) + "ay") : 
+               str.slice(0).concat("way") : 
+               str.concat("ay");
+
+  console.log(newStr);
+  
+  return newStr;
+}
+
+translatePigLatin("consonant");
+translatePigLatin("algorithm");
+translatePigLatin("rhythm");
+
+/*
+** check if the words contains vowel
+** if yes where the first index of the vowel
+**   - if its at index 0, just add "way" at the end
+**   - if not then slice the letters in front of it 
+**     and move it to the back + "ay" at the end
+** if not just add "ay" at the end
+*/

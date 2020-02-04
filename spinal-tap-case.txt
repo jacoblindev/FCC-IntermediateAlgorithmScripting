@@ -1,0 +1,31 @@
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+
+  let newStr = str.split('')
+            .map(e => e.match(/[A-Z]+/g) ? " ".concat(e) : e)
+            .join("").toLowerCase().split(/[\W_]+/g)
+            .filter(e => e !== "").join("-");
+
+
+  
+  console.log(str);
+  console.log(newStr);
+  console.log("===================================");
+
+  return newStr;
+}
+
+spinalCase('This Is Spinal Tap');
+spinalCase("The_Andy_Griffith_Show");
+spinalCase("thisIsSpinalTap");
+spinalCase("AllThe-small Things");
+
+/*
+** Break the str into an array
+** Find the break point
+**   - includes symbols, underscore & Capital Char
+** .split() it into array
+** Make sure there are no empty elements
+** .join() all the elements back into a new str with "-"!!
+*/
