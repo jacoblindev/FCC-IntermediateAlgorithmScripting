@@ -1,0 +1,28 @@
+function sumFibs(num) {
+  // Create the Fibonacci array up to <= num
+  let fibArr = [1, 1];
+  while (fibArr[fibArr.length - 1] < num) {
+    fibArr.push(fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2]);
+  };
+  // Check the last index and make it <= num 
+  if (fibArr[fibArr.length - 1] >= num) {
+      fibArr.pop();
+      fibArr.push(num);
+  }
+  console.log(fibArr);
+  // Filter out the odd num and sum it up!
+  let sum = fibArr.filter(e => e % 2 !== 0).reduce((a, c) => a + c);
+
+  console.log(sum);
+  return sum;
+}
+
+sumFibs(4);
+sumFibs(10);
+sumFibs(1);
+
+/*
+** create a Fibonacci array up to the num <= given num
+** reduce it to get the sum of odd num in the array
+** 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+*/

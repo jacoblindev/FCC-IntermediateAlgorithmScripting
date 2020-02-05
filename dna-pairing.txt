@@ -1,0 +1,34 @@
+function pairElement(str) {
+
+  let arr = str.split('');
+  console.log(arr);
+  
+  for (let i = 0; i < arr.length; i++) {
+    switch(arr[i]) {
+      case 'A':
+        arr[i] = arr[i].split('').concat('T');
+        break;
+      case 'T':
+        arr[i] = arr[i].split('').concat('A');
+        break;
+      case 'C':
+        arr[i] = arr[i].split('').concat('G');
+        break;
+      case 'G':
+        arr[i] = arr[i].split('').concat('C');
+        break;
+    }
+  }
+
+  console.log(arr);
+  return arr;
+}
+
+pairElement("GCG");
+
+/*
+** Make the str into an array and loop through it
+** check each element in switch case
+** split each element into a 2d arr 
+** concat the missing pair into the 2d arr
+*/

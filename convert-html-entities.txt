@@ -1,0 +1,38 @@
+function convertHTML(str) {
+  // &colon;&rpar;
+  let regex = /[&<>\"']+/g;
+  if (str.match(regex)) {
+    let newStr = "";
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === '&') {
+        newStr += '&amp;';
+      } else if(str[i] === '<') {
+        newStr += '&lt;';
+      } else if(str[i] === '>') {
+        newStr += '&gt;';
+      } else if(str[i] === '"') {
+        newStr += '&quot;';
+      } else if(str[i] === "'") {
+        newStr += '&apos;';
+      } else {
+        newStr += str[i];
+      }
+    }
+    console.log(newStr);
+    return newStr;
+  } else {
+    console.log(str);
+    return str;
+  }
+  // console.log(regex);
+}
+
+convertHTML("Dolce & Gabbana");
+convertHTML("Schindler's List");
+convertHTML("abc")
+
+/*
+** check if the string includes the characters
+** loop through the str and compare the characters
+** replace the match ones with HTML entities.
+*/

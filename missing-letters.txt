@@ -1,0 +1,21 @@
+function fearNotLetter(str) {
+
+  let fullLetters = "abcdefghijklmnopqrstuvwxyz";
+  let correctStr = fullLetters.substring(fullLetters.indexOf(str[0]), fullLetters.indexOf(str[str.length - 1]) + 1);
+  let regex = new RegExp("[^" + str + "]", "g"); // convert a string into a regex
+  let missingLetter = correctStr[correctStr.search(regex)];
+
+  console.log(correctStr);
+  console.log(regex);
+  console.log(missingLetter);
+
+  return missingLetter;
+}
+
+fearNotLetter("abce");
+fearNotLetter("stvwx");
+
+/*
+** Substring "a-z" with the given letter range
+** compare each other to find the missing letter
+*/

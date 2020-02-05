@@ -1,0 +1,32 @@
+function myReplace(str, before, after) {
+
+  let arr = str.split(" ");
+
+  let replaceWord = arr.slice(0).splice(arr.indexOf(before), 1);
+
+  if (replaceWord[0].match(/[A-Z]/)) {
+    let sUpper = after.charAt(0).toUpperCase() + after.substring(1);
+    arr.splice(arr.indexOf(before), 1, sUpper).join(" ");
+  } else {
+    let sLower = after.charAt(0).toLowerCase() + after.substring(1);
+    arr.splice(arr.indexOf(before), 1, sLower);
+  }
+
+  let newStr = arr.join(" ");
+  // console.log(replaceWord);
+  console.log(newStr);
+
+  return newStr;
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
+
+/*
+** Make str into an array
+** find out the index of the word that's going to be replace
+** check the first letter of the word
+** if its uppercase or not
+** change the case of the replacing word accordingly
+** replace the word and join the arr back together! 
+*/
