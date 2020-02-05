@@ -1,0 +1,12 @@
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+  
+  let flatArr = arr.slice(0).flat(Infinity);
+  console.log(flatArr);
+  console.log(arr);
+
+  return flatArr;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
+steamrollArray([1, {}, [3, [[4]]]]);

@@ -1,0 +1,36 @@
+function isPrime(e) {
+  // This func check an element 
+  // to see if it's a prime number
+  // by dividing it with all the num before it 
+  // starting from 2
+  for (let i = 2; i < e; i++) {
+    if (e % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function sumPrimes(num) {
+
+  let primeArr = [2];
+  // Loop through all the odd num <= given num
+  for (let j = 3; j <= num; j += 2) {
+    if (isPrime(j)) {
+      primeArr.push(j);
+    }
+  }
+  console.log(primeArr);
+
+  let sumAllPrimes = primeArr.reduce((a, c) => a + c);
+
+  console.log(sumAllPrimes);
+  return sumAllPrimes;
+}
+
+sumPrimes(33);
+
+/*
+** Find the "prime number(質數)" that's <= num
+** sum it all up!!
+*/

@@ -1,0 +1,48 @@
+function sortedRangeArr(arr) {
+  let sortedArr = arr.slice(0).sort((a, b) => a - b);
+  let rangeArr = [];
+  for (let i = sortedArr[0]; i <= sortedArr[1]; i++) {
+    rangeArr.push(i);
+  }
+  return rangeArr;
+}
+
+function isPrime(e) {
+  for (let i = 2; i < e; i++) {
+    if (e % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function smallestCommons(arr) {
+  
+  let rangeArr = sortedRangeArr(arr);
+  let primeArr = [2];
+  for (let i = 3; i <= rangeArr[rangeArr.length - 1]; i += 2) {
+    if (isPrime(i)) {
+      primeArr.push(i);
+    }
+  }
+  let commonPrimeArr =[];
+  primeArr.forEach(function(i) {
+    while (rangeArr.some(e => e % i === 0)) {
+      commonPrimeArr.push(i);
+      rangeArr = rangeArr.map(e => e % i === 0 ? e / i : e);
+    }
+  });
+
+  let commonMutiple = commonPrimeArr.reduce((a,b) => a * b);
+
+  console.log("=================================");
+  console.log(rangeArr);
+  console.log(primeArr);
+  console.log(commonPrimeArr);
+  console.log("=================================");
+
+  return commonMutiple;
+}
+
+smallestCommons([2,10]);
+smallestCommons([23,18]);
