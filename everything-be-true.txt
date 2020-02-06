@@ -1,0 +1,29 @@
+function truthCheck(collection, pre) {
+  // Is everyone being true?
+  let truthyOrNot = true;
+  // Loop through the array collection
+  for (let i = 0; i < collection.length; i++) {
+    // Check the obj to see if it has the property or not?
+    if (collection[i].hasOwnProperty(pre)) {
+      // Check the value of the obj.property
+      // if the value is Falsy truthyOrNot = false
+      if (!collection[i][pre]) {
+        // console.log("---HERE--- ");
+        truthyOrNot = false;
+      }
+    } else {
+      truthyOrNot = false;
+    }
+  }
+  console.log(truthyOrNot);
+  return truthyOrNot;
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+/*
+** Loop through the array
+** Check each obj to see if they goy the key->pre
+** and also check the value of the key 
+** Falsy -- "", '', ``, NaN, Null, undefined, false, 0, 0n
+*/

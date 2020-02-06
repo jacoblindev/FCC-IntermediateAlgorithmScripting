@@ -1,0 +1,29 @@
+function addTogether() {
+
+  let argus = Array.from(arguments);
+  console.log("A: " + argus);
+
+  let validNum = argus.every(e => Number.isSafeInteger(e)) ? true : undefined;
+  console.log("B: " + validNum);
+
+  let result = !validNum ? undefined 
+               : argus.length > 1 ? argus[0] + argus[1]
+               : sumThisAnd => !Number.isSafeInteger(sumThisAnd) ? undefined
+               : sumThisAnd += argus[0];
+
+  console.log("C: " + result);
+  console.log("==============")
+  return result;
+}
+
+addTogether(2, 3);
+addTogether(2, "3");
+addTogether("http://bit.ly/IqT6zt");
+addTogether(2)([3]);
+addTogether(2)(3);
+
+/*
+** Check the arguments are valid Num or not
+** Check if there's >= 2 arguments or not
+** then do the calculate...!
+*/
